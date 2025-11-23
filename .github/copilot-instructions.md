@@ -58,6 +58,7 @@ Follow mypy configuration defined in `mypy.ini`:
 Example:
 ```python
 from pathlib import Path
+from typing import Any
 
 def read_project_file(file_path: Path) -> dict[str, Any]:
     """Read and parse an Ableton Live project file.
@@ -157,6 +158,9 @@ aelus/
 Use Google-style docstrings for all public functions, classes, and modules:
 
 ```python
+from pathlib import Path
+from typing import Any
+
 def process_audio_file(
     audio_path: Path,
     sample_rate: int = 44100,
