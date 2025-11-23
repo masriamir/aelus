@@ -323,9 +323,12 @@ def parse_als_file(als_path: Path) -> ET.Element:
 Use `pyproject.toml` for project configuration. Access version dynamically:
 
 ```python
-from importlib.metadata import version
+from importlib.metadata import PackageNotFoundError, version
 
-__version__ = version("aelus")
+try:
+    __version__ = version("aelus")
+except PackageNotFoundError:
+    __version__ = "0.0.0+unknown"
 ```
 
 ### Logging
