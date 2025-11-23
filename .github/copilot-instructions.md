@@ -24,6 +24,8 @@ Follow the Ruff configuration defined in `pyproject.toml`:
 - **Indentation:** 4 spaces (no tabs)
 - **Import organization:** Use isort conventions with `src` as first-party package
 - **Docstring format:** Format code blocks in docstrings
+- **Trailing whitespace:** Remove all trailing whitespace from all files
+- **File endings:** All files must end with a single newline character
 
 #### Enabled Ruff Rules
 
@@ -62,13 +64,13 @@ from typing import Any
 
 def read_project_file(file_path: Path) -> dict[str, Any]:
     """Read and parse an Ableton Live project file.
-    
+
     Args:
         file_path: Path to the .als file
-        
+
     Returns:
         Dictionary containing parsed project data
-        
+
     Raises:
         FileNotFoundError: If the file does not exist
         ValueError: If the file is not a valid .als file
@@ -166,24 +168,24 @@ def process_audio_file(
     sample_rate: int = 44100,
 ) -> dict[str, Any]:
     """Process an audio file referenced in an Ableton Live project.
-    
+
     This function analyzes audio files to extract metadata and prepare
     them for display in the dashboard.
-    
+
     Args:
         audio_path: Path to the audio file to process
         sample_rate: Target sample rate for processing (default: 44100)
-        
+
     Returns:
         Dictionary containing audio metadata with keys:
             - duration: Length of audio in seconds
             - channels: Number of audio channels
             - format: Audio file format (wav, mp3, etc.)
-            
+
     Raises:
         FileNotFoundError: If audio file does not exist
         ValueError: If sample_rate is not positive
-        
+
     Examples:
         >>> audio_path = Path("samples/kick.wav")
         >>> metadata = process_audio_file(audio_path)
@@ -218,17 +220,17 @@ class InvalidProjectFileError(ValueError):
 
 def validate_als_file(file_path: Path) -> None:
     """Validate that a file is a valid Ableton Live project.
-    
+
     Args:
         file_path: Path to the file to validate
-        
+
     Raises:
         FileNotFoundError: If the file does not exist
         InvalidProjectFileError: If the file is not a valid .als file
     """
     if not file_path.exists():
         raise FileNotFoundError(f"File not found: {file_path}")
-    
+
     if file_path.suffix != ".als":
         raise InvalidProjectFileError(
             f"Expected .als file, got {file_path.suffix}"
@@ -298,20 +300,20 @@ import xml.etree.ElementTree as ET
 
 def parse_als_file(als_path: Path) -> ET.Element:
     """Parse an Ableton Live project file.
-    
+
     Args:
         als_path: Path to the .als file
-        
+
     Returns:
         Root element of the parsed XML tree
-        
+
     Raises:
         FileNotFoundError: If the file does not exist
         ValueError: If the file cannot be parsed as valid XML
     """
     if not als_path.exists():
         raise FileNotFoundError(f"Project file not found: {als_path}")
-    
+
     try:
         with gzip.open(als_path, 'rb') as f:
             tree = ET.parse(f)
@@ -384,6 +386,8 @@ def process_project(project_path: Path) -> None:
 ❌ Shadow built-in names (enforced by `flake8-builtins`)
 ❌ Create overly complex functions (watch mccabe complexity)
 ❌ Skip error handling for file operations
+❌ Leave trailing whitespace in files
+❌ Commit files that don't end with a newline
 
 ## Development Workflow
 
@@ -423,3 +427,4 @@ def process_project(project_path: Path) -> None:
 ---
 
 **Note:** These instructions should be reviewed and updated as the project evolves. Always ensure Copilot-generated code adheres to these standards.
+
