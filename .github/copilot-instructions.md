@@ -315,7 +315,7 @@ def parse_als_file(als_path: Path) -> ET.Element:
         raise FileNotFoundError(f"Project file not found: {als_path}")
 
     try:
-        with gzip.open(als_path, 'rb') as f:
+        with gzip.open(als_path, "rb") as f:
             tree = ET.parse(f)
             return tree.getroot()
     except (OSError, ET.ParseError) as e:
