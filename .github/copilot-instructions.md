@@ -343,6 +343,7 @@ Use Python's standard logging module instead of print statements:
 
 ```python
 import logging
+from pathlib import Path
 
 logger = logging.getLogger(__name__)
 
