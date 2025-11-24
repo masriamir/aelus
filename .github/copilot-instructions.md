@@ -428,4 +428,3 @@ def process_project(project_path: Path) -> None:
 ---
 
 **Note:** These instructions should be reviewed and updated as the project evolves. Always ensure Copilot-generated code adheres to these standards.
-
