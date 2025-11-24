@@ -361,33 +361,33 @@ def process_project(project_path: Path) -> None:
 
 ### Do:
 
-✅ Use `pathlib.Path` for all file system operations
-✅ Include type hints for all function parameters and return values
-✅ Write comprehensive tests with appropriate markers
-✅ Use Google-style docstrings for all public APIs
-✅ Handle errors with specific exception types
-✅ Use logging instead of print statements (except in CLI entry points)
-✅ Follow the Ruff configuration in `pyproject.toml`
-✅ Keep dependencies minimal and justified
-✅ Write self-documenting code with clear variable names
-✅ Validate input parameters and provide clear error messages
-✅ Consider edge cases in your implementation
+- ✅ Use `pathlib.Path` for all file system operations
+- ✅ Include type hints for all function parameters and return values
+- ✅ Write comprehensive tests with appropriate markers
+- ✅ Use Google-style docstrings for all public APIs
+- ✅ Handle errors with specific exception types
+- ✅ Use logging instead of print statements (except in CLI entry points)
+- ✅ Follow the Ruff configuration in `pyproject.toml`
+- ✅ Keep dependencies minimal and justified
+- ✅ Write self-documenting code with clear variable names
+- ✅ Validate input parameters and provide clear error messages
+- ✅ Consider edge cases in your implementation
 
 ### Don't:
 
-❌ Use `os.path` module - use `pathlib.Path` instead
-❌ Leave functions without type hints
-❌ Use generic `Exception` - use specific exception types
-❌ Use `print()` statements outside of CLI tools
-❌ Add dependencies without clear justification
-❌ Write tests without appropriate markers
-❌ Ignore mypy type checking errors
-❌ Commit code that doesn't pass `ruff check` and `ruff format`
-❌ Shadow built-in names (enforced by `flake8-builtins`)
-❌ Create overly complex functions (watch mccabe complexity)
-❌ Skip error handling for file operations
-❌ Leave trailing whitespace in files
-❌ Commit files that don't end with a newline
+- ❌ Use `os.path` module - use `pathlib.Path` instead
+- ❌ Leave functions without type hints
+- ❌ Use generic `Exception` - use specific exception types
+- ❌ Use `print()` statements outside of CLI tools
+- ❌ Add dependencies without clear justification
+- ❌ Write tests without appropriate markers
+- ❌ Ignore mypy type checking errors
+- ❌ Commit code that doesn't pass `ruff check` and `ruff format`
+- ❌ Shadow built-in names (enforced by `flake8-builtins`)
+- ❌ Create overly complex functions (watch mccabe complexity)
+- ❌ Skip error handling for file operations
+- ❌ Leave trailing whitespace in files
+- ❌ Commit files that don't end with a newline
 
 ## Development Workflow
 
