@@ -21,9 +21,3 @@ paths-ignore:
   - 'docs/**'
   - '.github/**'
 
-# Python-specific configuration
-languages:
-  python:
-    # Specify Python version for more accurate analysis
-    python_setup:
-      version: "3.13"
