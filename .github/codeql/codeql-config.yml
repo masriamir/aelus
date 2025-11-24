@@ -19,5 +19,3 @@ paths:
 paths-ignore:
   - '**/*.md'
   - 'docs/**'
-  - '.github/**'
-
