@@ -73,7 +73,3 @@ jobs:
       uses: github/codeql-action/analyze@v3
       with:
         category: "/language:${{matrix.language}}"
-        # Upload results to GitHub Security tab
-        upload: true
-        # Optional: fail the build if high-severity issues are found
-        # fail-on: error
