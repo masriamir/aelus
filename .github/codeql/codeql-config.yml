@@ -10,12 +10,6 @@ queries:
 #   - exclude:
 #       id: py/unused-import
 
-# Specify paths to scan
-# Note: These directories will be created as the project develops
-paths:
-  - src
-  - tests
-
 # Paths to ignore
 paths-ignore:
   - '**/*.md'
