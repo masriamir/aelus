@@ -49,7 +49,7 @@ jobs:
     - name: Install dependencies
       run: |
         if [ -f "uv.lock" ]; then
-          uv sync --all-groups
+          uv sync
         else
           echo "No uv.lock found, skipping dependency installation"
         fi
