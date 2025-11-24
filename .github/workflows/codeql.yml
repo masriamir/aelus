@@ -56,10 +56,8 @@ jobs:
       uses: github/codeql-action/init@v3
       with:
         languages: ${{ matrix.language }}
-        # Use both security and quality queries
-        queries: security-and-quality
-        # Optional: specify additional query packs
-        # queries: security-extended,security-and-quality
+        # Use custom configuration file for extended query packs
+        config-file: ./.github/codeql/codeql-config.yml
 
     # Autobuild attempts to build any compiled code (not needed for Python)
     # but will also discover Python code structure
