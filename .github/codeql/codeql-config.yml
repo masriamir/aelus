@@ -1,0 +1,29 @@
+name: "Aelus CodeQL config"
+
+# Specify query packs to use
+queries:
+  - uses: security-and-quality
+  - uses: security-extended
+
+# Define custom query paths (if any)
+# query-filters:
+#   - exclude:
+#       id: py/unused-import
+
+# Specify paths to scan
+paths:
+  - src
+  - tests
+
+# Paths to ignore
+paths-ignore:
+  - '**/*.md'
+  - 'docs/**'
+  - '.github/**'
+
+# Python-specific configuration
+languages:
+  python:
+    # Specify Python version for more accurate analysis
+    python_setup:
+      version: "3.13"
