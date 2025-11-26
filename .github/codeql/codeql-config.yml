@@ -5,11 +5,6 @@ queries:
   - uses: security-and-quality
   - uses: security-extended
 
-# Define custom query paths (if any)
-# query-filters:
-#   - exclude:
-#       id: py/unused-import
-
 # Paths to ignore
 paths-ignore:
   - '**/*.md'
