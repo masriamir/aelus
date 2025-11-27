@@ -1,0 +1,10 @@
+name: "Aelus CodeQL config"
+
+# Specify query packs to use
+queries:
+  - uses: security-and-quality
+
+# Paths to ignore
+paths-ignore:
+  - '**/*.md'
+  - 'docs/**'
