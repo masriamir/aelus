@@ -16,7 +16,16 @@ keywords = [
 ]
 readme = "README.md"
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.32.0",
+    "pydantic>=2.10.0",
+    "pydantic-settings>=2.6.0",
+    "slowapi>=0.1.9",
+    "python-multipart>=0.0.18",
+    "aiofiles>=24.1.0",
+    "defusedxml>=0.7.1",
+]
 classifiers = [
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.13",
@@ -39,12 +48,19 @@ Issues = "https://github.com/masriamir/aelus/issues"
 dev = [
     "ruff>=0.14.5,<1.0.0",  # Linting and formatting
     "mypy>=1.18.2,<2.0.0",  # Type checking
+    "types-aiofiles>=24.1.0",  # Type stubs for aiofiles
 ]
 
 test = [
-    "pytest>=9.0.1,<10.0.0",  # Testing framework
+    "pytest>=9.0.0,<10.0.0",  # Testing framework
     "pytest-cov>=7.0.0,<8.0.0",  # Coverage reporting
     "pytest-watch>=4.2.0,<5.0.0",  # Watch mode for tests
+    "pytest-asyncio>=1.0.0,<2.0.0",  # Async test support
+    "httpx>=0.27.0,<1.0.0",  # Async HTTP client for testing
+]
+
+quality = [
+    "pre-commit>=4.0.0,<5.0.0",  # Pre-commit hooks
 ]
 
 [tool.ruff]
@@ -104,6 +120,15 @@ docstring-code-line-length = "dynamic"
 [tool.ruff.lint.per-file-ignores]
 "tests/**" = [
     "S101",  # assert statements
+    "PLR2004",  # Magic value comparisons in tests
+    "PLC0415",  # Import not at top level (common in tests)
+]
+"src/aelus/_version.py" = [
+    "RUF022",  # __all__ sorting (auto-generated file)
+    "UP035",  # Deprecated typing (auto-generated)
+    "I001",  # Import sorting (auto-generated)
+    "UP006",  # Use tuple (auto-generated)
+    "UP007",  # Use X | Y (auto-generated)
 ]
 
 [tool.ruff.lint.isort]
@@ -111,6 +136,12 @@ known-first-party = ["src"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+markers = [
+    "unit: Unit tests that do not require external dependencies",
+    "integration: Integration tests that test multiple components together",
+]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
 
 [tool.uv]
 cache-keys = [
