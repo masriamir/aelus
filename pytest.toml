@@ -1,5 +1,5 @@
 [pytest]
-minversion = "8.2.0"
+minversion = "9.0.0"
 strict = true
 
 # Test discovery
