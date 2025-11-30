@@ -12,7 +12,7 @@ from pathlib import Path
 import defusedxml.ElementTree as DefusedET
 
 from aelus.parsers.base import ALSProject, ALSTrack, BaseALSParser
-from aelus.utils.exceptions import InvalidALSFileError
+from aelus.utils.exceptions import FileOperationError, InvalidALSFileError
 from aelus.utils.file_io import read_gzipped_file
 
 logger = logging.getLogger(__name__)
@@ -53,7 +53,7 @@ class CustomALSParser(BaseALSParser):
 
         try:
             content = read_gzipped_file(file_path)
-        except Exception as e:
+        except FileOperationError as e:
             raise InvalidALSFileError(f"Failed to read file: {e}") from e
 
         try:

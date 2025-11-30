@@ -73,6 +73,8 @@ def read_gzipped_file(path: Path) -> bytes:
             return f.read()
     except gzip.BadGzipFile as e:
         raise FileOperationError(f"Invalid gzip file: {e}", str(path)) from e
+    except EOFError as e:
+        raise FileOperationError(f"Truncated gzip file: {e}", str(path)) from e
     except OSError as e:
         raise FileOperationError(f"Failed to read file: {e}", str(path)) from e
 

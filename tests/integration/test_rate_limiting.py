@@ -7,13 +7,18 @@ from aelus.api.app import create_app
 from aelus.core.config import Settings
 
 # Note: Rate limiting tests are currently skipped due to compatibility
-# issues between slowapi and newer versions of Starlette.
-# The rate limiting functionality is properly implemented but
-# the middleware has a bug with certain exception handling.
+# issues between slowapi 0.1.9 and newer versions of Starlette (>0.50).
+# The rate limiting functionality is properly implemented and the limiter
+# can be verified to be attached via unit tests.
+# TODO: Track this as technical debt - either wait for slowapi fix or
+# implement alternative rate limiting solution.
+# See: https://github.com/laurents/slowapi/issues
 
 
 @pytest.mark.integration
-@pytest.mark.skip(reason="slowapi middleware has compatibility issue with Starlette")
+@pytest.mark.skip(
+    reason="slowapi middleware has compatibility issue with Starlette >=0.50"
+)
 class TestRateLimiting:
     """Test rate limiting functionality."""
 
