@@ -10,10 +10,10 @@ Aelus is a web-based dashboard for viewing and organizing Ableton Live project f
 
 ### Python Version
 
-- **Target:** Python 3.13+
-- Use modern Python features appropriate for Python 3.13
+- **Target:** Python 3.14+
+- Use modern Python features appropriate for Python 3.14
 - Type hints are mandatory for all function parameters and return values
-- Follow the syntax and features available in Python 3.13
+- Follow the syntax and features available in Python 3.14
 
 ### Code Style
 
