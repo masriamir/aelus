@@ -16,6 +16,7 @@ RED := \033[31m
 PROJECT_NAME := aelus
 SOURCE_DIR := src
 TEST_DIR := tests
+COV_REPORT_DIR := reports/coverage
 PYTHON_VERSION := 3.13
 
 # Check if uv is installed
@@ -132,9 +133,16 @@ test-integration: ## Run integration tests only
 .PHONY: test-cov
 test-cov: ## Run tests with coverage report
 	@echo -e "$(GREEN)Running tests with coverage...$(RESET)"
-	uv run pytest $(TEST_DIR) --cov=$(SOURCE_DIR)/$(PROJECT_NAME) --cov-report=term-missing --cov-report=html
+	uv run pytest $(TEST_DIR) \
+		--cov=$(SOURCE_DIR)/$(PROJECT_NAME) \
+		--cov-report=term-missing \
+		--cov-report html:$(COV_REPORT_DIR)/htmlcov \
+		--cov-report json:$(COV_REPORT_DIR)/coverage.json \
+		--cov-report markdown:$(COV_REPORT_DIR)/coverage.md \
+		--cov-report markdown-append:$(COV_REPORT_DIR)/coverage-append.md \
+		--cov-report xml:$(COV_REPORT_DIR)/coverage.xml
 	@echo -e "$(GREEN)✓ Coverage report generated$(RESET)"
-	@echo -e "$(YELLOW)HTML report available at:$(RESET) htmlcov/index.html"
+	@echo -e "$(YELLOW)HTML report available at:$(RESET) $(COV_REPORT_DIR)/htmlcov/index.html"
 
 .PHONY: test-watch
 test-watch: ## Run tests in watch mode
