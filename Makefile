@@ -84,6 +84,12 @@ format: ## Format code with ruff
 	uv run ruff format $(SOURCE_DIR) $(TEST_DIR)
 	@echo -e "$(GREEN)✓ Code formatted$(RESET)"
 
+.PHONY: format-check
+format-check: ## Run ruff format linter
+	@echo -e "$(GREEN)Running format linter...$(RESET)"
+	uv run ruff format --check $(SOURCE_DIR) $(TEST_DIR)
+	@echo -e "$(GREEN)✓ Format linting complete$(RESET)"
+
 .PHONY: lint
 lint: ## Run ruff linter
 	@echo -e "$(GREEN)Running linter...$(RESET)"
