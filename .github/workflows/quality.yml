@@ -31,10 +31,10 @@ jobs:
         run: uv sync
 
       - name: Run Ruff linter
-        run: uv run ruff check src tests
+        run: uv run ruff check src tests --no-cache
 
       - name: Run Ruff formatter check
-        run: uv run ruff format --check src tests
+        run: uv run ruff format --check src tests --no-cache
 
       - name: Run mypy type checking
         run: uv run mypy src

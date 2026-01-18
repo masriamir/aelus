@@ -87,13 +87,13 @@ format: ## Format code with ruff
 .PHONY: format-check
 format-check: ## Run ruff format linter
 	@echo -e "$(GREEN)Running format linter...$(RESET)"
-	uv run ruff format --check $(SOURCE_DIR) $(TEST_DIR)
+	uv run ruff format --check $(SOURCE_DIR) $(TEST_DIR) --no-cache
 	@echo -e "$(GREEN)✓ Format linting complete$(RESET)"
 
 .PHONY: lint
 lint: ## Run ruff linter
 	@echo -e "$(GREEN)Running linter...$(RESET)"
-	uv run ruff check $(SOURCE_DIR) $(TEST_DIR)
+	uv run ruff check $(SOURCE_DIR) $(TEST_DIR) --no-cache
 	@echo -e "$(GREEN)✓ Linting complete$(RESET)"
 
 .PHONY: lint-fix
