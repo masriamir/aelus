@@ -124,11 +124,7 @@ docstring-code-line-length = "dynamic"
     "PLC0415",  # Import not at top level (common in tests)
 ]
 "src/aelus/_version.py" = [
-    "RUF022",  # __all__ sorting (auto-generated file)
-    "UP035",  # Deprecated typing (auto-generated)
-    "I001",  # Import sorting (auto-generated)
-    "UP006",  # Use tuple (auto-generated)
-    "UP007",  # Use X | Y (auto-generated)
+    "ALL",
 ]
 
 [tool.ruff.lint.isort]
