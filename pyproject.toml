@@ -148,6 +148,10 @@ cache-keys = [
     { file = "pyproject.toml" },
     { git = { commit = true, tags = true } }
 ]
+default-groups = [
+    "dev",
+    "test",
+]
 required-version = ">=0.9.9,<1.0.0"
 
 [tool.uv.pip]
